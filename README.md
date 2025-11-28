@@ -63,4 +63,5 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag1;tag2;tag3;tag4
    
-UML sequence diagram showing how requesting and receiving data works. Make it detailed enough that your teammates (and your grader) will understand.
+# UML Sequence Diagram:
+<img width="1539" height="1151" alt="image" src="https://github.com/user-attachments/assets/b06592a2-180b-4b23-885f-ff772332a6ec" />
