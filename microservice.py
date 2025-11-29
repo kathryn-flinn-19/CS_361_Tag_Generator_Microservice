@@ -92,7 +92,7 @@ def notes_to_tags(notes):
     return tags
 
 def remove_double_semicolon(tags):
-    updated = ""
+    updated = tags
     while tags.find(";;") != -1:
         updated = tags[0:tags.find(";;")] + tags[tags.find(";;") + 1:]
         tags = updated
@@ -103,26 +103,44 @@ def append_tag(tags, new_tag):
     if tags[len(tags) - 1] != ';':
         tags = tags + ";"
     
+    print("new tag:", new_tag)
+
     tags = tags + new_tag
+
+    print("all tags:", tags)
+
     return tags
 
 def generate_all_tags(data):
+    print("data:", data)
     title = data.get("title")
+    print("title:", title)
     date = data.get("date", "")
+    print("date:", date)
     location = data.get("location", "")
+    print("location:", location)
     notes = data.get("notes", "")
+    print("notes:", notes)
 
     tags = ""
     tags = tags + title_to_tags(title)
 
+    print(tags)
+
     if date != "":
         tags = append_tag(tags, date_to_tags(date))
 
+        print(tags)
+
     if location != "":
         tags = append_tag(tags, location_to_tags(location))
+
+        print(tags)
     
     if notes != "":
         tags = append_tag(tags, notes_to_tags(notes))
+
+        print(tags)
 
     return remove_double_semicolon(tags)
     
@@ -146,7 +164,11 @@ def server():
 
         json_data = json.loads(full_msg)
 
+        print(json_data)
+
         response = generate_all_tags(json_data)
+
+        print(response)
 
         socket.send_string(response)
 
