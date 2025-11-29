@@ -108,20 +108,20 @@ def append_tag(tags, new_tag):
 
 def generate_all_tags(data):
     title = data.get("title")
-    date = data.get("date", None)
-    location = data.get("location", None)
-    notes = data.get("notes", None)
+    date = data.get("date", "")
+    location = data.get("location", "")
+    notes = data.get("notes", "")
 
     tags = ""
     tags = tags + title_to_tags(title)
 
-    if date != None:
+    if date != "":
         tags = append_tag(tags, date_to_tags(date))
 
-    if location != None:
+    if location != "":
         tags = append_tag(tags, location_to_tags(location))
     
-    if notes != None:
+    if notes != "":
         tags = append_tag(tags, notes_to_tags(notes))
 
     return remove_double_semicolon(tags)
